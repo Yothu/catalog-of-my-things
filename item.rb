@@ -21,19 +21,23 @@ class Item
 
   def source=(value)
     @source = value
-  end
+  end  
 
-  def move_to_archived?
-  end
-
-  def can_be_archived
+  def can_be_archived?
     time = Time.now
     year = time.year
     published_year = @publish_date.year
     results = year - published_year
     results > 10 ? true : false
   end
+
+  def move_to_archive
+    @archived = true if can_be_archived? == true
+  end
   
   private :id, :can_be_archived, :archived
-
 end
+
+# object = Item.new(Time.new(2015, 1, 1), false)
+# puts object.can_be_archived?
+# puts object.move_to_archive
