@@ -7,19 +7,19 @@ class Item
      @archived = archived
   end
 
-  def genre = (value)
+  def genre=(value)
     @genre = value
   end
 
-  def author = (value)
+  def author=(value)
     @author = value
   end
 
-  def label = (value)
+  def label=(value)
     @label = value
   end
 
-  def source = (value)
+  def source=(value)
     @source = value
   end
 
@@ -27,6 +27,11 @@ class Item
   end
 
   def can_be_archived
+    time = Time.now
+    year = time.year
+    published_year = @publish_date.year
+    results = year - published_year
+    results > 10 ? true : false
   end
   
   private :id, :can_be_archived, :archived
