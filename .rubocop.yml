@@ -18,8 +18,6 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
-Metrics/CyclomaticComplexity:
-  Max: 20
 
 
 Style/Documentation:
@@ -48,7 +46,11 @@ Lint/StructNewOverride:
   Enabled: false
 Style/HashEachMethods:
   Enabled: false
+Style/CyclomaticComplexity:
+  Enabled: false 
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Style/EndOfLine:
+  EnforcedStyle: lf
