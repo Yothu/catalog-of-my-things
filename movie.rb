@@ -4,8 +4,8 @@ require_relative 'source'
 class Movie < Item
   attr_accessor :silent
 
-  def initialize(publish_date, silent, archived, name)
-    super(publish_date, archived, name)
+  def initialize(publish_date, silent, archived)
+    super(publish_date, archived)
     @silent = silent
   end
 
