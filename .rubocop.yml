@@ -46,7 +46,11 @@ Lint/StructNewOverride:
   Enabled: false
 Style/HashEachMethods:
   Enabled: false
+Style/CyclomaticComplexity:
+  Enabled: false 
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Style/EndOfLine:
+  EnforcedStyle: lf
