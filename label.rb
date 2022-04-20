@@ -5,15 +5,13 @@ class Label
     @id = id
     @title = title
     @color = color
+    @items = []
   end
 
   attr_reader :items
 
   def add_items(item)
-    @items = [] unless defined?(@items)
     @items.push(item)
     item.label = self
   end
-
-  private :items
 end
