@@ -32,7 +32,7 @@ CREATE TABLE label (
   color VARCHAR(20)
 );
 
-CREATE TABLE music-album (
+CREATE TABLE musicAlbum (
   id INT PRIMARY KEY REFERENCES item(id),
   on_spotify BOOLEAN NOT NULL
 );
