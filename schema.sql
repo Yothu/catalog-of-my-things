@@ -19,3 +19,15 @@ CREATE TABLE author (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL
 );
+
+CREATE TABLE  book (
+  id INT PRIMARY KEY REFERENCES item(id),
+  publisher VARCHAR(40),
+  cover_state VARCHAR(30)
+);
+
+CREATE TABLE label (
+  id INT PRIMARY KEY REFERENCES item(id),
+  title VARCHAR(30),
+  color VARCHAR(20)
+);
