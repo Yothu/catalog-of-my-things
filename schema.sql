@@ -41,3 +41,15 @@ CREATE TABLE genre (
   id INT PRIMARY KEY REFERENCES item(id),
   name VARCHAR(30) NOT NULL  
 );
+
+CREATE TABLE movies (
+  id INT PRIMARY KEY,
+  silet BOOLEAN,
+  FOREIGN KEY(id) REFERENCES item(id)
+);
+
+CREATE TABLE sources (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(255)
+  PRIMARY KEY(id)
+);
