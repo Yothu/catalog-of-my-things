@@ -17,7 +17,6 @@ def main_menu
   puts '13) Exit the program'
 end
 
-
 def options
   input = gets.chomp.to_i
   case input
@@ -29,7 +28,7 @@ def options
   when 6 then list_all_labels
   when 7 then list_all_authors
   when 8 then list_all_sources
-  when 9 then  add_book
+  when 9 then add_book
   when 10 then add_music_album
   when 11 then add_game
   when 12 then add_movie
@@ -49,7 +48,7 @@ def main
     option = app.options
     break if option == 13
   end
-    puts 'Thanks for using this App!! ✨'
+  puts 'Thanks for using this App!! ✨'
 end
 
 main
