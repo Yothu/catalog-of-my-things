@@ -8,7 +8,7 @@ class Source
   end
 
   def add_item(item)
-    item.add_source = self
+    item.source = self
     @items << item unless @items.include?(item)
   end
 end
