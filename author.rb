@@ -1,7 +1,7 @@
 require_relative './item'
 
 class Author
-  attr_accessor :first_name, :last_name, :items
+  attr_accessor :first_name, :last_name, :items, :id
 
   def initialize(first_name, last_name, id = Time.now.to_f.to_s)
     @first_name = first_name

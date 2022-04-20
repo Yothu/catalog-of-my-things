@@ -11,8 +11,8 @@ class Genre
 
   def add_item(item)
     items << item
-    item.genre = self unless item.genre == self
+    item.genre = self
   end
 
-  private :id, :items
+  # private :id, :items
 end

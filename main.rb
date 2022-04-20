@@ -1,4 +1,4 @@
-require_relative './app'
+# require_relative './app'
 
 def main_menu
   puts 'Please choose an option by enterin a number:'
@@ -40,12 +40,12 @@ end
 
 def main
   running = true
-  app = App.new
+  # app = App.new
 
   puts 'Welcome to our App! 🎉'
   while running
     main_menu
-    option = app.options
+    option = options
     break if option == 13
   end
   puts 'Thanks for using this App!! ✨'
