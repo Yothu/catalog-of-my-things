@@ -1,5 +1,5 @@
-require_relative '../label.rb'
-require_relative '../item.rb'
+require_relative '../label'
+require_relative '../item'
 
 describe Label do
   before :each do
@@ -27,7 +27,7 @@ describe Label do
   describe 'Add items to label'
   it 'Push a new item in Each label class object' do
     item = Item.new(Time.new(2010, 1, 1), true)
-      @label.add_items(item)
+    @label.add_items(item)
 
     expect(@label.items).to include(item)
   end

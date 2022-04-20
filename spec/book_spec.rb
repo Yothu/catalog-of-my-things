@@ -1,4 +1,4 @@
-require_relative '../book.rb'
+require_relative '../book'
 
 describe Book do
   before :each do
@@ -25,7 +25,6 @@ describe Book do
 
   describe 'Check if the book can be archived'
   it 'Return true if can be archived or cover state is bad otherwise return false' do
-
     expect(@book.can_be_archived?).to eql false
   end
 end
