@@ -1,4 +1,4 @@
-require_relative './years_difference'
+require_relative '../years_difference'
 
 class Item
   include YearsDifference

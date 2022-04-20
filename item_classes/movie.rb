@@ -1,5 +1,5 @@
 require_relative 'item'
-require_relative '../tag_vlasses/source'
+require_relative '../tag_classes/source'
 
 class Movie < Item
   attr_accessor :silent
