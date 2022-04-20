@@ -12,7 +12,7 @@ class GenreList
     puts 'Genre registered succesfully'
   end
 
-  def list_all_genre    
+  def list_all_genre
     @genres.each do |genre|
       puts "Genre: #{genre.name}"
     end
