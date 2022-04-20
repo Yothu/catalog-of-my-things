@@ -1,5 +1,5 @@
 require_relative './item'
-require_relative './years_difference'
+require_relative '../years_difference'
 
 class Game < Item
   include YearsDifference
