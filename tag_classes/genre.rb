@@ -1,3 +1,4 @@
+require_relative '../item_classes/item'
 class Genre
   attr_accessor :name, :items
 
