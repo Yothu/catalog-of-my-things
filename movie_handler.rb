@@ -82,7 +82,7 @@ class MovieHandler
   end
 end
 
-movie = MovieHandler.new
+# movie = MovieHandler.new
 
 # puts movie.add_movie
 # puts movie.list_all_movies
