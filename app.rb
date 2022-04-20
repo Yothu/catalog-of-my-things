@@ -1,7 +1,3 @@
-
-
-class App
-  def initialize
-  
-  end
-end
+# class App
+#   def initialize; end
+# end
