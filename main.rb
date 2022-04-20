@@ -1,4 +1,7 @@
+require_relative './app'
+
 def main_menu
+  puts 'Please choose an option by enterin a number:'
   puts '1) List all Books'
   puts '2) List all Music Albums'
   puts '3) List all Games'
@@ -14,7 +17,8 @@ def main_menu
   puts '13) Exit the program'
 end
 
-def options(input)
+def options
+  input = gets.chomp.to_i
   case input
   when 1 then list_all_books
   when 2 then list_all_music_albums
@@ -28,20 +32,23 @@ def options(input)
   when 10 then add_music_album
   when 11 then add_game
   when 12 then add_movie
-  when 13
-    # save_data
-    13
+  when 13 then 13
+  else
+    puts 'Invalid number, please try again!'
   end
 end
 
 def main
   running = true
+  app = App.new
 
+  puts 'Welcome to our App! 🎉'
   while running
     main_menu
-    input = gets.to_i
-    break if options(input) == 13
+    option = app.options
+    break if option == 13
   end
+  puts 'Thanks for using this App!! ✨'
 end
 
 main
