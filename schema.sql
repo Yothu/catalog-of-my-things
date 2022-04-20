@@ -31,13 +31,3 @@ CREATE TABLE label (
   title VARCHAR(30),
   color VARCHAR(20)
 );
-
-CREATE TABLE musicAlbum (
-  id INT PRIMARY KEY REFERENCES item(id),
-  on_spotify BOOLEAN NOT NULL
-);
-
-CREATE TABLE genre (
-  id INT PRIMARY KEY REFERENCES item(id),
-  name VARCHAR(30) NOT NULL  
-);
