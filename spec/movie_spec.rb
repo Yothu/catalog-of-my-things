@@ -15,7 +15,7 @@ describe Movie do
     it 'should return correct date' do
       expect(movie.publish_date).to eq '2020/02/02'
     end
-  
+
     it 'has an archived status' do
       expect(movie.archived).to eq(true)
     end

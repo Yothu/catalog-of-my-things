@@ -3,7 +3,6 @@ require_relative '../item'
 
 describe Source do
   context 'Should test movie class' do
-
     source = Source.new 'Mike'
 
     it 'source should be Source instantiation' do
@@ -17,11 +16,11 @@ describe Source do
     it 'has a name' do
       expect(source.name).to eq('Mike')
     end
-  
+
     it 'has items' do
       expect(source.items).to eq([])
     end
-  
+
     it 'can add items' do
       item = Item.new(Time.now, false)
       source.add_item(item)
