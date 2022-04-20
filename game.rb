@@ -4,7 +4,7 @@ require_relative './years_difference'
 class Game < Item
   include YearsDifference
 
-  attr_reader :last_played_at, :multiplayer
+  attr_reader :last_played_at, :multiplayer, :id
 
   def initialize(multiplayer, last_played_at, publish_date, archived, id = Time.now.to_f.to_s)
     super(publish_date, archived, id)
