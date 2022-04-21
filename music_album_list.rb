@@ -1,4 +1,5 @@
 require_relative 'music_album'
+require 'json'
 
 class MusicList
   def initialize
@@ -27,5 +28,29 @@ class MusicList
       puts "publish_date: #{album.publish_date}, archived: #{album.archived},
       on_spotify: #{album.on_spotify}"
     end
+  end
+
+  def save_albums
+    albums = @albums.map do |album|
+      {
+        spotify: album.on_spotify,
+        publish_date: album.publish_date,
+        archived: album.archived,
+        id: album.id
+      }
+    end
+
+    json_album = JSON.generate(albums)
+    File.write('music_album.json', "#{json_album}\n", mode: 'w')
+  end
+
+  def show_albums
+    file_path = 'music_album.json'
+    if File.exist?(file_path)
+      raw_data = File.read('music_album.json')
+      clean_data = JSON.parse(raw_data)
+      clean_data.map do |album|        
+        @albums << MusicAlbum.new(album['spotify'], album['publish_date'], album['archived'], album['id'])
+      end
   end
 end
