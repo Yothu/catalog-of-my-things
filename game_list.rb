@@ -1,7 +1,10 @@
 require_relative './game'
 require 'json'
+require_relative './input'
 
 class GameList
+  include Input
+
   def initialize
     @games = []
   end
@@ -21,17 +24,13 @@ class GameList
   end
 
   def add_game_menu
-    print 'Publication date?'
-    publish_date = gets
+    publish_date = text { 'Publication date?' }
 
-    print 'Is multiplayer?'
-    multiplayer = gets
+    multiplayer = y_n { 'Is multiplayer? [Y/N]' }
 
-    print 'When was last played?'
-    last_played_at = gets
+    last_played_at = text { 'When was last played?' }
 
-    print 'Is archieved?'
-    archived = gets
+    archived = y_n { 'Is archieved? [Y/N]' }
 
     add_game(multiplayer, last_played_at, publish_date, archived)
   end

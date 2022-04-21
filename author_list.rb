@@ -1,7 +1,10 @@
 require_relative './author'
 require 'json'
+require_relative './input'
 
 class AuthorList
+  include Input
+
   def initialize
     @authors = []
   end
@@ -19,11 +22,9 @@ class AuthorList
   end
 
   def add_author_menu
-    print 'First Name?'
-    first_name = gets.chomp
+    first_name = text { 'First Name?' }
 
-    print 'Last Name?'
-    last_name = gets.chomp
+    last_name = text { 'Last Name?' }
 
     add_author(first_name, last_name)
   end
