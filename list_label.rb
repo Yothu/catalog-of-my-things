@@ -32,8 +32,7 @@ class ListLabel
     read_json.each do |label|
       loaded_labels.push(Label.new(label['title'], label['color']))
     end
-
     file.close
-    load_labels
+    @labels = loaded_labels
   end
 end

@@ -15,7 +15,7 @@ CREATE TABLE game (
 );
 
 CREATE TABLE author (
-  id INT PRIMARY KEY REFERENCES item(id),
+  id INT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL
 );
@@ -27,7 +27,7 @@ CREATE TABLE  book (
 );
 
 CREATE TABLE label (
-  id INT PRIMARY KEY REFERENCES item(id),
+  id INT PRIMARY KEY,
   title VARCHAR(30),
   color VARCHAR(20)
 );
@@ -38,7 +38,7 @@ CREATE TABLE musicAlbum (
 );
 
 CREATE TABLE genre (
-  id INT PRIMARY KEY REFERENCES item(id),
+  id INT PRIMARY KEY,
   name VARCHAR(30) NOT NULL  
 );
 

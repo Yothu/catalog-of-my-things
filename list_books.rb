@@ -1,8 +1,10 @@
+require_relative './input'
 require_relative './book'
 require 'json'
 
 class ListBooks
-  include BookJson
+  include Input
+
   def initialize
     @books = []
   end
@@ -21,8 +23,7 @@ class ListBooks
     puts 'Please enter the cover state of the book?'
     cover_state = gets.chomp
 
-    puts 'Please enter "true" if the book is archived and "false" if it is not:[T or F]'
-    archived = gets.chomp
+    archived = y_n { 'is it archived?:[Y or N]' }
 
     puts 'Please enter publish date?'
     publish_date = gets.chomp
@@ -54,6 +55,6 @@ class ListBooks
     end
 
     file.close
-    loaded_books
+    @books = loaded_books
   end
 end
