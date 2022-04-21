@@ -2,7 +2,6 @@ require_relative './book'
 require 'json'
 
 class ListBooks
-  include BookJson
   def initialize
     @books = []
   end
@@ -54,6 +53,6 @@ class ListBooks
     end
 
     file.close
-    loaded_books
+    @books = loaded_books
   end
 end
