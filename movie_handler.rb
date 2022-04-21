@@ -81,8 +81,8 @@ class MovieHandler
       puts 'Sorry! We have no source details'
     end
   end
-  
-  #MAKE DATA PERSIST START
+
+  # MAKE DATA PERSIST START
 
   def save_movies
     File.write('movies.json', JSON.generate(@movies)) unless @movies.empty?
@@ -121,11 +121,6 @@ class MovieHandler
       []
     end
   end
-  #MAKE DATA PERSIST END
+  # MAKE DATA PERSIST END
 end
 
-movie = MovieHandler.new
-
-# puts movie.add_movie
-# puts movie.list_all_movies
-# puts movie.list_all_sources
