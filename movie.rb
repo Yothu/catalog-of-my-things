@@ -2,7 +2,7 @@ require_relative 'item'
 require_relative 'source'
 
 class Movie < Item
-  attr_accessor :silent, :name
+  attr_accessor :silent, :name, :id
 
   def initialize(name, publish_date, silent, archived)
     super(publish_date, archived)
@@ -14,15 +14,14 @@ class Movie < Item
     super() || @silent
   end
 
-  def to_json(*args)
+  def to_obj(id, name, publish_date, silent, archived)
     {
-      JSON.create_id => self.class.name,
-      'id' => @id,
-      'name' => @name,
-      'publish_date' => @publish_date,
-      'silent' => @silent,
-      'archived' => @archived
-    }.to_json(*args)
+      'id' => id,
+      'name' => name,
+      'publish_date' => publish_date,
+      'silent' => silent,
+      'archived' => archived
+    }
   end
 
   private :can_be_archived?

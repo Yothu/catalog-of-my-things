@@ -1,10 +1,12 @@
 require 'json'
 require_relative 'movie'
 require_relative 'source'
+require_relative './input'
 
 class MovieHandler
   attr_accessor :movie
 
+  include Input
   def initialize
     @movies = []
     @sources = []
@@ -16,38 +18,18 @@ class MovieHandler
     Source.new(source_name)
   end
 
-  def handle_sources
-    if @sources.any?
-      print "enter 'N' to create a new source or 'S' to select an existing one:  "
-      option = gets.chomp.upcase
-      case option
-      when 'N'
-        create_source
-      when 'S'
-        puts 'select a source from the list by index'
-        all_soucrce
-        option = gets.chomp
-        @sources[option.to_i]
-      else
-        print 'invalid entry'
-      end
-    else
-      create_source
-    end
-  end
-
   def add_movie
     puts
     print 'Movie name: '
     name = gets.chomp
     print 'Published Date: '
     publish_date = gets.chomp
-    print 'Silent? [Y/N]: '
-    silent = gets.chomp != 'n'
-    print 'Archived? [Y/N]: '
-    archived = gets.chomp != 'n'
 
-    source = handle_sources
+    silent = y_n { 'Silent? [Y/N]:' }
+
+    archived = y_n { 'Archived? [Y/N]:' }
+
+    source = create_source
     movie = Movie.new(name, publish_date, silent, archived)
     source.add_item(movie)
     @sources.push(source) unless @sources.include?(source)
@@ -82,27 +64,34 @@ class MovieHandler
     end
   end
 
-  # MAKE DATA PERSIST START
-
   def save_movies
-    File.write('movies.json', JSON.generate(@movies)) unless @movies.empty?
+    movies = @movies.map do |movie|
+      movie.to_obj(movie.id, movie.name, movie.publish_date, movie.silent, movie.archived)
+    end
+
+    File.write('movies.json', JSON.generate(movies), mode: 'w')
   end
 
   def save_sources
-    File.write('sources.json', JSON.generate(@sources)) unless @sources.empty?
+    sources = @sources.map do |source|
+      source.to_obj(source.id, source.name)
+    end
+
+    File.write('sources.json', JSON.generate(sources), mode: 'w')
   end
 
   def load_movies_from_files
     file = 'movies.json'
 
     if File.exist? file
+      File.open(file)
       JSON.parse(File.read(file)).map do |movie|
-        new_movie = Movie.new(publish_date: movie['publish_date'], silent: movie['silent'], archived: movie['archived'],
-                              name: movie['name'])
+        new_movie = Movie.new(movie['publish_date'], movie['silent'], movie['archived'], movie['name'])
         new_movie.id = movie['id']
         @movies.push(new_movie)
       end
     else
+      File.new(file, 'w')
       []
     end
   end
@@ -111,6 +100,7 @@ class MovieHandler
     file = 'sources.json'
 
     if File.exist? file
+      File.open(file)
       JSON.parse(File.read(file)).map do |source|
         new_source = Source.new(source['name'])
         new_source.id = source['id']
@@ -118,8 +108,8 @@ class MovieHandler
         @sources.push(new_source)
       end
     else
+      File.new(file, 'w')
       []
     end
   end
-  # MAKE DATA PERSIST END
 end
