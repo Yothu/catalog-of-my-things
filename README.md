@@ -8,8 +8,7 @@
 
 ## Catalog of my things
 
->     In this app we created options that will help you to keep a record of different types of things you won
-and we stored it in JSON files and we made structure of database if you want to store it.
+> In this app we created options that will help you to keep a record of different types of things you won and we stored it in JSON files and we made structure of database if you want to store it inside it.
 
 
 ### Requirements
