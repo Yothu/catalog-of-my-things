@@ -22,7 +22,7 @@ class GenreList
   def save_genres
     genres = @genres.map do |genre|
       {
-        name: genre.name,        
+        name: genre.name,
         id: genre.id
       }
     end
@@ -37,7 +37,7 @@ class GenreList
       raw_data = File.read('genres.json')
       clean_data = JSON.parse(raw_data)
       clean_data.map do |genre|
-        @genres << Genre.new(genre['name'], genre['id'])        
+        @genres << Genre.new(genre['name'], genre['id'])
       end
     else
       File.new('genres.json', 'w')

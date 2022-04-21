@@ -49,8 +49,11 @@ class MusicList
     if File.exist?(file_path)
       raw_data = File.read('music_album.json')
       clean_data = JSON.parse(raw_data)
-      clean_data.map do |album|        
+      clean_data.map do |album|
         @albums << MusicAlbum.new(album['spotify'], album['publish_date'], album['archived'], album['id'])
       end
+    else
+      File.new('music_album.json', 'w')
+    end
   end
 end
