@@ -1,4 +1,4 @@
-## Copyright 2021, [YOUR NAME]
+## Copyright 2021, [Reem Janina] & [David Vergaray] & [Jeff Kayombo] & [Fernando Herrera]
 
 ###### Please delete this line and the next one
 ###### APP TYPE can be a webpage/website, a web app, a software and so on
