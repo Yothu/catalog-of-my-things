@@ -2,19 +2,19 @@ require_relative 'music_album'
 require 'json'
 require_relative 'input'
 
-class MusicList  
+class MusicList
   include Input
   def initialize
     @albums = []
   end
 
-  def add_music_album    
-    spotify = y_n { 'The Album is on Spotify? (y/n)' }       
+  def add_music_album
+    spotify = y_n { 'The Album is on Spotify? (y/n)' }
 
     puts 'Please enter the publish date?'
     publish_date = gets.chomp
 
-    archived = y_n {'Is the album archived? (y/n)'}    
+    archived = y_n { 'Is the album archived? (y/n)' }
 
     @albums << MusicAlbum.new(spotify, publish_date, archived)
     puts 'Album registered succesfully'
