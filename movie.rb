@@ -10,9 +10,20 @@ class Movie < Item
     @name = name
   end
 
-  private
-
   def can_be_archived?
     super() || @silent
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'id' => @id,
+      'name' => @name,
+      'publish_date' => @publish_date,
+      'silent' => @silent,
+      'archived' => @archived
+    }.to_json(*args)
+  end
+
+  private :can_be_archived?
 end
