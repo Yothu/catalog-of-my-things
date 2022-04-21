@@ -1,3 +1,4 @@
+require 'json'
 require_relative 'movie'
 require_relative 'source'
 
@@ -80,10 +81,45 @@ class MovieHandler
       puts 'Sorry! We have no source details'
     end
   end
+
+  # MAKE DATA PERSIST START
+
+  def save_movies
+    File.write('movies.json', JSON.generate(@movies)) unless @movies.empty?
+  end
+
+  def save_sources
+    File.write('sources.json', JSON.generate(@sources)) unless @sources.empty?
+  end
+
+  def load_movies_from_files
+    file = 'movies.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |movie|
+        new_movie = Movie.new(publish_date: movie['publish_date'], silent: movie['silent'], archived: movie['archived'],
+                              name: movie['name'])
+        new_movie.id = movie['id']
+        @movies.push(new_movie)
+      end
+    else
+      []
+    end
+  end
+
+  def load_sources_from_files
+    file = 'sources.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |source|
+        new_source = Source.new(source['name'])
+        new_source.id = source['id']
+        new_source.items = source['items']
+        @sources.push(new_source)
+      end
+    else
+      []
+    end
+  end
+  # MAKE DATA PERSIST END
 end
-
-# movie = MovieHandler.new
-
-# puts movie.add_movie
-# puts movie.list_all_movies
-# puts movie.list_all_sources
