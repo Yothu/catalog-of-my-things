@@ -123,4 +123,3 @@ class MovieHandler
   end
   # MAKE DATA PERSIST END
 end
-
