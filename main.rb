@@ -23,15 +23,15 @@ def options(app)
   when 1 then app.books.list_all_books
   when 2 then app.musics.list_all_music_albums
   when 3 then app.games.list_all_games
-  when 4 then app.list_all_movies
+  when 4 then app.movies_sources.list_all_movies
   when 5 then app.genres.list_all_genre
   when 6 then app.labels.list_all_labels
   when 7 then app.authors.list_all_authors
-  when 8 then app.list_all_sources
+  when 8 then app.movies_sources.list_all_sources
   when 9 then app.books.add_book
   when 10 then app.musics.add_music_album
   when 11 then app.games.add_game_menu
-  when 12 then app.add_movie
+  when 12 then app.movies_sources.add_movie
   when 13 then 13
   else
     puts 'Invalid number, please try again!'

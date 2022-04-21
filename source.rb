@@ -12,12 +12,10 @@ class Source
     @items << item unless @items.include?(item)
   end
 
-  def to_json(*args)
+  def to_obj(id, name)
     {
-      JSON.create_id => self.class.name,
-      'id' => @id,
-      'name' => @name,
-      'items' => @items
-    }.to_json(*args)
+      'id' => id,
+      'name' => name
+    }
   end
 end
