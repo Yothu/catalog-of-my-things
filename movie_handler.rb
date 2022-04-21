@@ -91,7 +91,7 @@ class MovieHandler
         @movies.push(new_movie)
       end
     else
-      File.new(file,  'w')
+      File.new(file, 'w')
       []
     end
   end
