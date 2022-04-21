@@ -51,6 +51,7 @@ def main
     break if option == 13
   end
   app.save_data
+
   puts 'Thanks for using this App!! ✨'
 end
 
